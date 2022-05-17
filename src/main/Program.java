@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import main.modell.Elelmiszer;
 import main.modell.Raktar;
 
 /**
@@ -27,6 +28,14 @@ public class Program {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Raktar raktar= new Raktar();
         
+        for (Elelmiszer elelmiszer : raktar.rendezNevSzerint()) {
+            System.out.println(elelmiszer);
+        }
+        
+        
+        for (Elelmiszer elelmiszer : raktar.rendezGyartoSzerint()) {
+            System.out.println(elelmiszer);
+        }
         
         try {
              ObjectOutputStream objMent=new ObjectOutputStream(new FileOutputStream("raktar.bin"));

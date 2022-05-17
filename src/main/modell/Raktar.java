@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +34,16 @@ public class Raktar implements Iterable<Elelmiszer>, Serializable{
     @Override
     public Iterator<Elelmiszer> iterator() {
         return Collections.unmodifiableList(elelmiszerek).iterator();
+    }
+    
+    public List<Elelmiszer> rendezNevSzerint(){
+        Collections.sort(elelmiszerek,Elelmiszer.nevRendezo());
+        return Collections.unmodifiableList(elelmiszerek);
+    }
+    
+    public List<Elelmiszer> rendezGyartoSzerint(){
+        Collections.sort(elelmiszerek,Elelmiszer.gyartoRendezo());
+        return Collections.unmodifiableList(elelmiszerek);
     }
     
 }
